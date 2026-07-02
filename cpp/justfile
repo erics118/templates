@@ -1,0 +1,15 @@
+default: (build "Debug")
+
+configure build_type="Debug":
+    cmake -S . -B ./build -G Ninja \
+        -DCMAKE_BUILD_TYPE={{ build_type }} \
+        -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+build build_type="Debug": (configure build_type)
+    cmake --build ./build
+
+clean:
+    rm -rf build
+
+test build_type="Debug": (build build_type)
+    ctest --test-dir ./build --output-on-failure
