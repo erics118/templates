@@ -33,11 +33,9 @@
 
         treefmt = {
           projectRootFile = "flake.nix";
-
           settings = {
             excludes = [ "target/**" ];
           };
-
           programs = {
             nixfmt.enable = true;
             rustfmt.enable = true;

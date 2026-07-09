@@ -50,7 +50,6 @@
               nixfmt.enable = true;
               just.enable = true;
             };
-
           };
 
           formatter = config.treefmt.build.wrapper;
