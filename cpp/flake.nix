@@ -25,7 +25,6 @@
         {
           devShells.default = pkgs.mkShell.override { stdenv = llvm.libcxxStdenv; } {
             packages = with pkgs; [
-              llvm.clang
               llvm.clang-tools
               llvm.lldb
               cmake

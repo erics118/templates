@@ -1,7 +1,4 @@
 ---
 BasedOnStyle: Google
 IndentWidth: 4
-TabWidth: 4
-BreakBeforeBinaryOperators: NonAssignment
-AlignAfterOpenBracket: DontAlign
-AlignOperands: AlignAfterOperator
+ColumnLimit: 100
