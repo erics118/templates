@@ -23,6 +23,7 @@
       perSystem = { pkgs, config, ... }: {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
+            config.treefmt.build.wrapper
             nodejs_26
             typescript-language-server
             tailwindcss-language-server

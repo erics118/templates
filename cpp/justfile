@@ -13,3 +13,9 @@ clean:
 
 test build_type="Debug": (build build_type)
     ctest --test-dir build --output-on-failure
+
+fmt:
+    treefmt
+
+check:
+    nix flake check

@@ -25,6 +25,7 @@
         {
           devShells.default = pkgs.mkShell.override { stdenv = llvm.libcxxStdenv; } {
             packages = with pkgs; [
+              config.treefmt.build.wrapper
               llvm.clang-tools
               llvm.lldb
               cmake

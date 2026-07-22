@@ -24,28 +24,31 @@
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
             config.treefmt.build.wrapper
-            python314
-            uv
-            basedpyright
-            ruff
+            (texlive.combine { inherit (texlive) scheme-full; })
+            texlab
+            just
+            perl
+            perlPackages.FileHomeDir
+            perlPackages.UnicodeLineBreak
+            perlPackages.YAMLTiny
+            perlPackages.LogLog4perl
+            perlPackages.LogDispatch
           ];
         };
 
         treefmt = {
           projectRootFile = "flake.nix";
-          settings = {
-            excludes = [
-              ".venv/**"
-              "dist/**"
-              "build/**"
-            ];
-          };
           programs = {
             nixfmt.enable = true;
-            ruff-check.enable = true;
-            ruff-format.enable = true;
-            taplo.enable = true;
+            just.enable = true;
+            latexindent.enable = true;
+            yamlfmt.enable = true;
           };
+          settings.formatter.latexindent.options = [ "-l=localSettings.yaml" ];
+          settings.formatter.yamlfmt.options = [
+            "-formatter"
+            "retain_line_breaks_single=true"
+          ];
         };
 
         formatter = config.treefmt.build.wrapper;
