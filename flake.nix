@@ -25,6 +25,10 @@
           path = ./cpp;
           description = "C++ project template";
         };
+        go = {
+          path = ./go;
+          description = "Go project template";
+        };
         latex = {
           path = ./latex;
           description = "LaTeX project template";
@@ -52,9 +56,6 @@
 
         treefmt = {
           projectRootFile = "flake.nix";
-          settings = {
-            excludes = [ "templates/*/**" ];
-          };
           programs = {
             nixfmt.enable = true;
             nixfmt.strict = true;
