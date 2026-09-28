@@ -34,6 +34,11 @@
             perlPackages.LogLog4perl
             perlPackages.LogDispatch
           ];
+
+          # fixes the pdf's embedded dates so rebuilds are byte-identical
+          shellHook = ''
+            export SOURCE_DATE_EPOCH=0
+          '';
         };
 
         treefmt = {
